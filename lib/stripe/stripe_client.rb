@@ -504,7 +504,7 @@ module Stripe
                                query: query,
                                &response_block)
         end
-
+        byebug
       [http_resp, api_key]
     end
 
