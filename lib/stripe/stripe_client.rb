@@ -487,6 +487,7 @@ module Stripe
       # We want to execute this block only when the response was actually
       # successful. When it wasn't, we defer to the standard error handling as
       # we have to read the body and parse the error JSON.
+      byebug
       response_block =
         if block_given?
           lambda do |response|
@@ -496,6 +497,7 @@ module Stripe
           end
         end
 
+      byebug
       http_resp =
         execute_request_with_rescues(method, api_base, headers, context) do
           self.class
@@ -506,7 +508,7 @@ module Stripe
                                query: query,
                                &response_block)
         end
-        byebug
+      byebug
       [http_resp, api_key]
     end
 
