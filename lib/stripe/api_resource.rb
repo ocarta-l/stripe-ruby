@@ -67,6 +67,7 @@ module Stripe
     end
 
     def resource_url
+      byebug
       unless (id = self["id"])
         raise InvalidRequestError.new(
           "Could not determine which URL to request: #{self.class} instance " \
