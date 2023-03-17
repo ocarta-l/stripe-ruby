@@ -213,6 +213,7 @@ module Stripe
 
     def execute_request(method, path,
                         api_base: nil, api_key: nil, headers: {}, params: {})
+      byebug
       http_resp, api_key = execute_request_internal(
         method, path, api_base, api_key, headers, params
       )
@@ -437,6 +438,7 @@ module Stripe
       unless method.is_a?(Symbol)
       raise ArgumentError, "path should be a string" \
       unless path.is_a?(String)
+        byebug
 
       api_base ||= config.api_base
       api_key ||= config.api_key
