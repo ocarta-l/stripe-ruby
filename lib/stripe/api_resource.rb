@@ -79,6 +79,7 @@ module Stripe
     end
 
     def refresh
+      byebug
       resp, opts = execute_resource_request(:get, resource_url,
                                             @retrieve_params)
       initialize_from(resp.data, opts)
@@ -87,6 +88,7 @@ module Stripe
     def self.retrieve(id, opts = {})
       opts = Util.normalize_opts(opts)
       instance = new(id, opts)
+      byebug
       instance.refresh
       instance
     end
